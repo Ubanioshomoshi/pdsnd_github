@@ -42,7 +42,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = check_user_input("Would you like to see the data for chicago, new york city or washington?\n",'c')
 
@@ -78,7 +78,7 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
 
     # filter by month if applicable
     if month != 'all':
@@ -93,8 +93,8 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-        
-        
+
+
     return df
 
 
@@ -188,38 +188,38 @@ def user_stats(df):
       Earliest_Year_of_Birth = df['Birth Year'].min()
       print('\nEarliest Year of Birth:', Earliest_Year_of_Birth)
     except KeyError:
-      print("\nEarliest Year of Birth:\nNo available data.")
+      print("\nEarliest Year of Birth:\n No available data.")
 
     try:
       Most_Recent_Year_of_Birth = df['Birth Year'].max()
       print('\nMost Recent Year of Birth:', Most_Recent_Year_of_Birth)
     except KeyError:
-      print("\nMost Recent Year of Birth:\nNo available data.")
+      print("\nMost Recent Year of Birth:\n No available data.")
 
     try:
       Most_Common_Year_of_Birth = df['Birth Year'].mode()[0]
       print('\nMost Common Year of Birth:', Most_Common_Year_of_Birth)
     except KeyError:
-      print("\nMost Common Year of Birth:\nNo available data.")
+      print("\nMost Common Year of Birth:\n No available data.")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-#view raw data to user     
+
+#view raw data to user
 def view_raw_data(df):
     row=0
     while True:
-        raw_data = input("Would you like to see the raw data?  Enter yes or no.\n").lower()
-   
-        if raw_data == "yes":
+        rawData = input("Would you like to see the raw data?  Enter yes or no.\n").lower()
+
+        if rawData == "yes":
             print(df.iloc[row : row + 6])
             row += 6
-        elif raw_data == "no":
+        elif rawData == "no":
             break
         else: #validate user input
             print("Sorry! You entered Wrong Input, Kindly try Again!")
-    
-    
+
+
 def main():
     while True:
         city, month, day = get_filters()
