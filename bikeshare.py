@@ -11,7 +11,7 @@ month_list=['january', 'february', 'march', 'april', 'may', 'june','all']
 weekday_list=['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all']
 
 #function to validate user input
-def check_user_input(user_input,input_type):
+def checkUserInput(user_input,input_type):
     while True:
             input_user_entered=input(user_input).lower()
             try:
@@ -44,13 +44,13 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
 
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city = check_user_input("Would you like to see the data for chicago, new york city or washington?\n",'c')
+    city = checkUserInput("Would you like to see the data for chicago, new york city or washington?\n",'c')
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    month = check_user_input("For filtering data by specific mounth please enter month name from (january, february, march, april, may, june) otherwise enter 'all'\n", 'm')
+    month = checkUserInput("For filtering data by specific mounth please enter month name from (january, february, march, april, may, june) otherwise enter 'all'\n", 'm')
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = check_user_input("For filtering data by specific day please enter day name from (sunday, monday, tuesday, wednesday, thursday, friday, saturday) otherwise enter 'all'\n", 'd')
+    day = checkUserInput("For filtering data by specific day please enter day name from (sunday, monday, tuesday, wednesday, thursday, friday, saturday) otherwise enter 'all'\n", 'd')
 
     print('-'*40)
     return city, month, day
